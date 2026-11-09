@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ORTHOHIN '27 — Official Batch Web Portal</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config={theme:{extend:{colors:{brand:{400:'#f87171',500:'#ef4444',600:'#dc2626',900:'#7f1d1d'}}}}}
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+body{font-family:'Inter',sans-serif;background:#09090b;color:#f4f4f5;overflow-x:hidden}
+.gradient-text{background:linear-gradient(135deg,#ef4444,#f43f5e,#e11d48);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.glass-card{background:rgba(24,24,27,.7);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.08);transition:.3s}
+.glass-card:hover{border-color:rgba(239,68,68,.4)}
+::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:#09090b}::-webkit-scrollbar-thumb{background:#27272a;border-radius:4px}
+.inp{width:100%;background:#09090b;border:1px solid #27272a;border-radius:.6rem;padding:.5rem .7rem;font-size:.8rem;color:#f4f4f5;outline:none}
+.inp:focus{border-color:#ef4444}
+.ab{padding:.45rem .7rem;border-radius:.6rem;font-size:.72rem;font-weight:700;background:#27272a;color:#e4e4e7;display:inline-flex;align-items:center;gap:.4rem}
+.ab:hover{background:#3f3f46}.ab.red{background:#dc2626;color:#fff}.ab.red:hover{background:#b91c1c}
+#admin-modal{padding-top:env(safe-area-inset-top,0px)}
+</style>
+</head>
+<body class="selection:bg-brand-600 selection:text-white">
+
+<!-- NAV -->
+<nav class="fixed top-0 inset-x-0 z-40 bg-zinc-950/80 backdrop-blur-xl border-b border-zinc-800/80">
+ <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
+  <a href="#hero" class="flex items-center gap-3">
+   <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-rose-600 p-0.5"><div class="w-full h-full bg-zinc-950 rounded-[10px] flex items-center justify-center"><i class="fab fa-instagram text-brand-500 text-xl"></i></div></div>
+   <div><span class="text-xl font-black block leading-none">ORTHOHIN <span class="text-brand-500">'27</span></span><span class="text-[11px] text-zinc-400">@orthohin_27</span></div>
+  </a>
+  <div class="hidden md:flex gap-8 text-sm font-semibold text-zinc-400">
+   <a href="#about" class="hover:text-white">About Us</a><a href="#gallery" class="hover:text-white">Gallery</a><a href="#directory" class="hover:text-white">Directory</a><a href="#timeline" class="hover:text-white">Timeline</a>
+  </div>
+  <div class="hidden md:flex items-center gap-3">
+   <a href="https://www.instagram.com/orthohin_27/" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-brand-600 to-rose-600 text-white font-bold text-xs uppercase tracking-wider flex items-center gap-2"><i class="fab fa-instagram"></i> Visit Instagram</a>
+  </div>
+  <button id="mobile-menu-btn" class="md:hidden text-zinc-400 text-2xl" aria-label="Menu"><i class="fas fa-bars"></i></button>
+ </div>
+ <div id="mobile-drawer" class="hidden md:hidden bg-zinc-950/95 border-b border-zinc-800 px-6 py-5 space-y-3 text-center font-medium">
+  <a href="#about" class="block text-zinc-300 py-2">About Us</a><a href="#gallery" class="block text-zinc-300 py-2">Gallery</a><a href="#directory" class="block text-zinc-300 py-2">Directory</a><a href="#timeline" class="block text-zinc-300 py-2">Timeline</a>
+  <a href="https://www.instagram.com/orthohin_27/" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-brand-600 text-white font-bold text-xs uppercase tracking-wider"><i class="fab fa-instagram"></i> Visit Instagram</a>
+ </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero" class="relative pt-32 pb-20 md:pt-44 md:pb-28 overflow-hidden flex items-center justify-center min-h-[85vh]">
+ <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-900/30 rounded-full blur-[130px] pointer-events-none"></div>
+ <div class="max-w-7xl mx-auto px-4 relative z-10 text-center">
+  <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-zinc-900/90 border border-brand-500/40 text-brand-400 text-xs sm:text-sm font-semibold mb-6"><span class="w-2.5 h-2.5 rounded-full bg-brand-500 animate-ping"></span>Official Batch Archive — Class of 2027</div>
+  <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight mb-6 leading-tight">THE UNSTOPPABLE <br class="sm:hidden"><span class="gradient-text">ORTHOHIN '27</span></h1>
+  <p class="max-w-2xl mx-auto text-zinc-400 text-base sm:text-lg md:text-xl leading-relaxed mb-10">Resilient, united, and timeless. Welcome to the official hub of Batch 2027. Honoring our journey, capturing memories, and stepping into the future together.</p>
+  <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14">
+   <a href="#gallery" class="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-gradient-to-r from-brand-600 to-rose-600 text-white font-bold text-sm shadow-xl shadow-brand-600/30">Explore Photos & Memories</a>
+   <a href="https://www.instagram.com/orthohin_27/" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-zinc-900/90 border border-zinc-800 text-zinc-200 font-semibold text-sm flex items-center justify-center gap-2"><i class="fab fa-instagram text-brand-400 text-lg"></i> Follow @orthohin_27</a>
+  </div>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+   <div class="glass-card p-5 rounded-2xl"><p class="text-3xl font-extrabold gradient-text">120+</p><p class="text-xs text-zinc-400 uppercase tracking-wider mt-1">Batchmates</p></div>
+   <div class="glass-card p-5 rounded-2xl"><p class="text-3xl font-extrabold gradient-text" id="stat-photos">500+</p><p class="text-xs text-zinc-400 uppercase tracking-wider mt-1">Memories Captured</p></div>
+   <div class="glass-card p-5 rounded-2xl"><p class="text-3xl font-extrabold gradient-text">15+</p><p class="text-xs text-zinc-400 uppercase tracking-wider mt-1">Events & Outings</p></div>
+   <div class="glass-card p-5 rounded-2xl"><p class="text-3xl font-extrabold gradient-text">2027</p><p class="text-xs text-zinc-400 uppercase tracking-wider mt-1">Graduation Year</p></div>
+  </div>
+ </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="py-20 bg-zinc-950/60 border-y border-zinc-900">
+ <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
+  <div class="space-y-6">
+   <div class="inline-block px-3 py-1 rounded-md bg-brand-500/10 border border-brand-500/30 text-brand-400 text-xs font-semibold uppercase tracking-widest">Who We Are</div>
+   <h2 class="text-3xl sm:text-4xl font-extrabold">Bound by Passion, Driven by Excellence: <span class="gradient-text">Orthohin '27</span></h2>
+   <p class="text-zinc-400 leading-relaxed">The name <strong>"Orthohin"</strong> signifies unmatched spirit and endless dedication. As the Class of 2027, our journey has been defined by late-night study sessions, sports triumphs, cultural celebrations, and unbreakable friendships.</p>
+   <div class="grid sm:grid-cols-2 gap-4 pt-2">
+    <div class="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800"><i class="fas fa-bullseye text-brand-500 text-xl mb-2"></i><h4 class="font-bold text-sm">Vision & Spirit</h4><p class="text-zinc-400 text-xs mt-1">To achieve excellence in our fields while staying deeply connected as a family.</p></div>
+    <div class="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800"><i class="fas fa-heart text-brand-500 text-xl mb-2"></i><h4 class="font-bold text-sm">Unbreakable Unity</h4><p class="text-zinc-400 text-xs mt-1">Supporting every member through every challenge and victory along the way.</p></div>
+   </div>
+  </div>
+  <div class="glass-card p-6 rounded-3xl text-center space-y-4">
+   <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-tr from-yellow-500 via-rose-500 to-purple-600 p-1"><div class="w-full h-full bg-zinc-950 rounded-full flex items-center justify-center"><i class="fab fa-instagram text-4xl"></i></div></div>
+   <h3 class="text-2xl font-black">@orthohin_27</h3>
+   <p class="text-zinc-400 text-sm max-w-xs mx-auto">Follow our official Instagram page for real-time photo uploads, stories, and batch updates.</p>
+   <a href="https://www.instagram.com/orthohin_27/" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-brand-600 to-rose-600 text-white font-bold text-xs uppercase tracking-wider">View Posts on Instagram <i class="fas fa-external-link-alt text-xs"></i></a>
+  </div>
+ </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="py-20">
+ <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <span class="text-brand-500 font-bold text-xs uppercase tracking-widest block mb-2">Memory Vault</span>
+  <h2 class="text-3xl sm:text-5xl font-black mb-12">Captured Moments</h2>
+  <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+ </div>
+</section>
+
+<!-- DIRECTORY -->
+<section id="directory" class="py-20 bg-zinc-950/80 border-t border-zinc-900">
+ <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="text-center max-w-3xl mx-auto mb-16">
+   <span class="text-brand-500 font-bold text-xs uppercase tracking-widest block mb-2">Leadership & Technical Team</span>
+   <h2 class="text-3xl sm:text-5xl font-black mb-4">Batch Directory</h2>
+   <p class="text-zinc-400 text-sm sm:text-base">Meet the key web developer and organizers keeping the Orthohin '27 digital platform alive.</p>
+  </div>
+  <div class="max-w-md mx-auto relative group">
+   <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-brand-600 via-rose-600 to-red-600 opacity-30 group-hover:opacity-75 blur-xl transition-all duration-500"></div>
+   <div class="relative bg-zinc-950 border border-zinc-800/80 rounded-3xl p-8 text-center">
+    <div class="w-36 h-36 mx-auto mb-6 rounded-full bg-gradient-to-tr from-brand-600 via-rose-600 to-red-600 p-1">
+     <div class="w-full h-full rounded-full bg-zinc-950 overflow-hidden border-2 border-zinc-900"><img id="dev-profile-img" alt="Abrar Al Razee Oytizzoh" class="w-full h-full object-cover object-top"></div>
+    </div>
+    <span class="px-4 py-1.5 rounded-full text-xs font-black bg-brand-500/20 text-brand-400 border border-brand-500/30 uppercase tracking-wider mb-3 inline-block"><i class="fas fa-code mr-1.5 text-brand-500"></i> Website Developer</span>
+    <h3 class="text-2xl font-black mb-1">Abrar Al Razee Oytizzoh</h3>
+    <p class="text-xs sm:text-sm text-zinc-400 font-semibold mb-6">Lead Website Developer & Batch Representative — Orthohin '27</p>
+    <div class="bg-zinc-900/80 rounded-2xl p-4 border border-zinc-800 text-left space-y-2">
+     <p class="text-xs text-brand-400 font-bold uppercase tracking-wider flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>Developer's Note</p>
+     <p class="text-xs italic text-zinc-300 leading-relaxed">"Designed and built this portal to preserve the memories, milestones, and spirit of Orthohin '27. Forever united as one batch!"</p>
+    </div>
+    <div class="mt-6"><a href="https://www.instagram.com/orthohin_27/" target="_blank" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-brand-600 to-rose-600 text-white text-xs font-bold inline-flex items-center gap-2"><i class="fab fa-instagram text-sm"></i> Connect on Instagram</a></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline" class="py-20 border-t border-zinc-900">
+ <div class="max-w-3xl mx-auto px-4">
+  <h2 class="text-3xl sm:text-5xl font-black mb-10 text-center">Our Journey</h2>
+  <ol class="border-l border-zinc-800 space-y-8 ml-2">
+   <li class="pl-6 relative"><span class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-brand-500"></span><p class="text-xs text-brand-400 font-bold">Day one</p><p class="text-zinc-300 text-sm">Batch 2027 comes together.</p></li>
+   <li class="pl-6 relative"><span class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-brand-500"></span><p class="text-xs text-brand-400 font-bold">Along the way</p><p class="text-zinc-300 text-sm">Events, outings, and friendships that last.</p></li>
+   <li class="pl-6 relative"><span class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-zinc-600"></span><p class="text-xs text-zinc-400 font-bold">2027</p><p class="text-zinc-300 text-sm">Graduation and the next chapter.</p></li>
+  </ol>
+ </div>
+</section>
+
+<footer class="py-8 text-center text-xs text-zinc-500 border-t border-zinc-900">© 2026 ORTHOHIN '27 — Forever united as one batch.</footer>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" class="hidden fixed inset-0 z-50 bg-black/90 flex flex-col items-center justify-center p-4" >
+ <button id="lb-close" class="absolute top-4 right-4 text-white text-2xl" aria-label="Close"><i class="fas fa-times"></i></button>
+ <img id="lb-img" class="max-h-[75vh] max-w-full rounded-xl" alt="">
+ <p id="lb-cap" class="mt-4 text-sm text-zinc-300 text-center max-w-lg"></p>
+</div>
+
+<!-- ADMIN MODAL (HIDDEN BY DEFAULT) -->
+<div id="admin-modal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm overflow-y-auto">
+ <div class="min-h-full flex items-start sm:items-center justify-center p-3 sm:p-6">
+  <div class="w-full max-w-3xl bg-zinc-950 border border-zinc-800 rounded-2xl shadow-2xl">
+   <div class="flex items-center justify-between px-5 py-4 border-b border-zinc-800">
+    <h3 class="font-black flex items-center gap-2"><i class="fas fa-user-shield text-brand-500"></i> Admin Panel</h3>
+    <button id="admin-close" class="text-zinc-400 hover:text-white text-xl" aria-label="Close"><i class="fas fa-times"></i></button>
+   </div>
+
+   <!-- login -->
+   <div id="admin-login" class="p-6 space-y-3">
+    <p class="text-sm text-zinc-400">Enter the admin password to edit photos.</p>
+    <input id="admin-pass" type="password" class="inp" placeholder="Password" autocomplete="current-password">
+    <p id="login-err" class="text-xs text-brand-400 hidden">Wrong password. Try again.</p>
+    <button id="login-btn" class="ab red w-full justify-center py-2.5">Unlock</button>
+   </div>
+
+   <!-- panel -->
+   <div id="admin-panel" class="hidden">
+    <div class="flex gap-2 px-5 pt-4 text-xs font-bold">
+     <button class="tab ab red" data-tab="t-gallery">Gallery photos</button>
+     <button class="tab ab" data-tab="t-profile">Profile photo</button>
+     <button class="tab ab" data-tab="t-data">Backup & security</button>
+    </div>
+
+    <div id="t-gallery" class="tabp p-5 space-y-4">
+     <div class="flex flex-wrap gap-2 items-center justify-between">
+      <p class="text-xs text-zinc-400"><span id="count">0</span> photos · changes save automatically</p>
+      <button id="add-btn" class="ab red"><i class="fas fa-plus"></i> Add photos</button>
+     </div>
+     <div id="admin-list" class="space-y-3"></div>
+    </div>
+
+    <div id="t-profile" class="tabp hidden p-5 space-y-3">
+     <img id="prof-prev" class="w-28 h-28 rounded-full object-cover object-top border border-zinc-800" alt="">
+     <input id="prof-url" class="inp" placeholder="Image URL or file name, e.g. photo.png">
+     <div class="flex flex-wrap gap-2">
+      <button id="prof-upload" class="ab red"><i class="fas fa-upload"></i> Upload new photo</button>
+      <button id="prof-apply" class="ab">Apply URL</button>
+      <button id="prof-reset" class="ab">Reset</button>
+     </div>
+    </div>
+
+    <div id="t-data" class="tabp hidden p-5 space-y-5">
+     <div class="space-y-2">
+      <p class="text-sm font-bold">Backup</p>
+      <p class="text-xs text-zinc-400">Edits live in this browser. Export a backup file, and import it on another device.</p>
+      <div class="flex flex-wrap gap-2">
+       <button id="exp-btn" class="ab"><i class="fas fa-download"></i> Export backup</button>
+       <button id="imp-btn" class="ab"><i class="fas fa-file-import"></i> Import backup</button>
+       <button id="reset-all" class="ab"><i class="fas fa-rotate-left"></i> Reset everything</button>
+      </div>
+     </div>
+     <div class="space-y-2">
+      <p class="text-sm font-bold">Change password</p>
+      <input id="new-pass" type="password" class="inp" placeholder="New password (min 6 characters)">
+      <button id="pass-btn" class="ab red">Save password</button>
+     </div>
+     <button id="logout-btn" class="ab"><i class="fas fa-lock"></i> Lock panel</button>
+    </div>
+    <p id="toast" class="px-5 pb-4 text-xs text-emerald-400 h-5"></p>
+   </div>
+  </div>
+ </div>
+</div>
+
+<input type="file" id="file-add" accept="image/*" multiple class="hidden">
+<input type="file" id="file-replace" accept="image/*" class="hidden">
+<input type="file" id="file-prof" accept="image/*" class="hidden">
+<input type="file" id="file-imp" accept="application/json" class="hidden">
+
+<script>
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const KEY='orthohin27_site', PKEY='orthohin27_pass', DEFAULT_PASS='orthohin27';
+const DEFAULT_PROFILE='WhatsApp_Image_2026-11-09_at_12.39.00_AM-removebg-preview.png';
+const FALLBACK='https://placehold.co/400x400/18181b/ef4444?text=AO';
+const seed=n=>({src:`https://placehold.co/800x600/18181b/ef4444?text=Memory+${n}`,title:`Memory ${n}`,caption:'Edit this caption in the admin panel.'});
+const DEFAULTS=()=>({gallery:[1,2,3,4,5,6].map(seed),profile:DEFAULT_PROFILE});
+let state;
+try{state=JSON.parse(localStorage.getItem(KEY))||DEFAULTS()}catch(e){state=DEFAULTS()}
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let tt;
+function toast(m,bad){const t=$('#toast');t.textContent=m;t.style.color=bad?'#f87171':'#34d399';clearTimeout(tt);tt=setTimeout(()=>t.textContent='',2500)}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(state));toast('Saved');return true}catch(e){toast('Storage full. Remove a photo or use a smaller image.',true);return false}}
+
+/* image helpers */
+function compress(file,max=1200){return new Promise((res,rej)=>{
+ const fr=new FileReader();fr.onerror=rej;
+ fr.onload=()=>{const im=new Image();im.onerror=rej;im.onload=()=>{
+  const k=Math.min(1,max/Math.max(im.width,im.height));const c=document.createElement('canvas');
+  c.width=Math.round(im.width*k);c.height=Math.round(im.height*k);c.getContext('2d').drawImage(im,0,0,c.width,c.height);
+  res(c.toDataURL(file.type==='image/png'&&file.size<300000?'image/png':'image/jpeg',.82))};im.src=fr.result};
+ fr.readAsDataURL(file)})}
+
+/* public render */
+function renderSite(){
+ $('#gallery-grid').innerHTML=state.gallery.length?state.gallery.map((g,i)=>`
+  <figure class="glass-card rounded-2xl overflow-hidden cursor-pointer" data-lb="${i}">
+   <img src="${esc(g.src)}" alt="${esc(g.title)}" loading="lazy" class="w-full aspect-[4/3] object-cover" onerror="this.src='https://placehold.co/800x600/18181b/71717a?text=Image+missing'">
+   <figcaption class="p-4"><p class="font-bold text-sm">${esc(g.title)}</p><p class="text-xs text-zinc-400 mt-1">${esc(g.caption)}</p></figcaption>
+  </figure>`).join(''):'<p class="text-zinc-500 text-sm col-span-full text-center">No photos yet.</p>';
+ const p=$('#dev-profile-img');p.src=state.profile||DEFAULT_PROFILE;p.onerror=()=>{p.onerror=null;p.src=FALLBACK};
+ $('#stat-photos').textContent=state.gallery.length>=500?state.gallery.length:'500+';
+}
+$('#gallery-grid').addEventListener('click',e=>{const f=e.target.closest('[data-lb]');if(!f)return;const g=state.gallery[f.dataset.lb];
+ $('#lb-img').src=g.src;$('#lb-cap').textContent=g.title+(g.caption?' — '+g.caption:'');$('#lightbox').classList.remove('hidden')});
+$('#lightbox').addEventListener('click',()=>$('#lightbox').classList.add('hidden'));
+
+/* admin list */
+function renderAdmin(){
+ $('#
